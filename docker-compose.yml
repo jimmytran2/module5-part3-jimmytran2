@@ -14,8 +14,8 @@ services:
     environment:
       - MONGO_URI=mongodb://mongo:27017/bank_app
       - SECRET_KEY=supersecretkey
-    ports:
-      - "5000:5000"
+    # ports:
+    #   - "5000:5000"
     depends_on:
       - mongo
 
@@ -26,8 +26,8 @@ services:
     environment:
       - MONGO_URI=mongodb://mongo:27017
       - PORT=6000
-    ports:
-      - "6000:6000"
+    # ports:
+    #   - "6000:6000"
     depends_on:
       - mongo
 
@@ -42,7 +42,7 @@ services:
   nginx:
     image: nginx:alpine
     ports:
-      - "80:80" # Main entry point for all traffic
+      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./studentportfolio:/usr/share/nginx/html:ro
